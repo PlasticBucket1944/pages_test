@@ -14,40 +14,59 @@
     <h1>Hello, world!</h1>
 
     <div class="container">
+
+      <h1>col test</h1>
       <div class="row align-items-start">
-        <div class="col">
-          One of three columns
+        <div class="col-md-4 border border-secondary">
+          col-md-4
         </div>
-        <div class="col">
-          One of three columns
+        <div class="col border border-secondary">
+          col
         </div>
-        <div class="col">
-          One of three columns
+        <div class="col border border-secondary">
+          col
         </div>
       </div>
+
+      <h1>js test1</h1>
       <div class="row align-items-center">
-        <div class="col" onclick="testFunc1()">
-          One of three columns
-        </div>
-        <div class="col">
-          One of three columns
-        </div>
-        <div id="test1" class="col">
-          One of three columns
+        <div class="col border border-secondary" onclick="testFunc1()">
+          onclick="testFunc1()
         </div>
       </div>
+
+      <h1>js test2</h1>
       <div class="row align-items-end">
-        <div id="test2" class="col">
-          One of three columns
+        <div id="test1" class="col border border-secondary">
+          addEventListener('click', testFunc2)
         </div>
-        <div class="col">
-          One of three columns
+        <div id="test2" class="col border border-secondary">
+          .addEventListener('click', function() { alert("testFunc3"); });
         </div>
-        <div class="col">
+        <div class="col border border-secondary">
           One of three columns
         </div>
       </div>
+
+      <h1>js hidden test</h1>
+      <div class="row align-items-start">
+        <div id="test3" class="border border-secondary">
+          test3 下が消えます
+        </div>
+        <div id="test4" class="border border-secondary">
+          test4 
+          <div>上下が消えます</div>
+        </div>
+        <div id="test5" class="border border-secondary">
+          test5 上が消えて下が表示されます
+        </div>
+        <div id="test6" class="border border-secondary" hidden>
+          test6 最初は隠れてます
+        </div>
+      </div>
+
     </div>
+    
 
     <script>
       document.getElementById('test1').addEventListener('click', testFunc2);
@@ -63,6 +82,23 @@
       function testFunc2() {
         alert("testFunc2");
       }
+
+      document.getElementById('test3').addEventListener('click', function() {
+        console.log(this.id);
+        console.log(this);
+        console.log(document.getElementById('test3')); // thisと同じ
+        document.getElementById('test4').hidden = !document.getElementById('test4').hidden;
+      });
+
+      document.getElementById('test4').addEventListener('click', function() {
+        document.getElementById('test3').hidden = !document.getElementById('test3').hidden;
+        document.getElementById('test5').hidden = !document.getElementById('test5').hidden;
+      });
+
+      document.getElementById('test5').addEventListener('click', function() {
+        document.getElementById('test4').hidden = !document.getElementById('test4').hidden;
+        document.getElementById('test6').hidden = !document.getElementById('test6').hidden;
+      });
       </script>
       
     <!-- Option 1: Bootstrap Bundle with Popper -->
